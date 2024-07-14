@@ -1,0 +1,191 @@
+$body-font-family: Arial, sans-serif;
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+body {
+  font-family: $body-font-family;
+  margin: 0;
+  padding: 0;
+  background-color: #020202;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.805);
+}
+
+.todo-form p {
+  color: white;
+  background-color: red;
+  max-width: 100%;
+  min-width: 60%;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 8px;
+}
+
+.todo-form .inputs {
+  display: flex;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  
+}
+.overdue-todos{
+  h2{
+    color: white;
+  }
+}
+input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.deleted-todos {
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 10px;
+  li{
+    background-color: black;
+    width: 90%;
+  }
+  h2{
+    color: white;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: 2fr;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  text-transform: capitalize;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out;
+
+  .actions {
+    float: right;
+
+    button {
+      &:hover {
+        background-color: darken(#dc3545, 10%);
+      }
+    }
+
+    button:nth-child(1) {
+      background-color: greenyellow;
+      color: black;
+
+      &:hover {
+        background-color: darken(greenyellow, 10%);
+      }
+    }
+
+    button:nth-child(3) {
+      background-color: $primary-color;
+    }
+  }
+
+  p {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  &.completed {
+    background-color: greenyellow;
+    p {
+      text-decoration: line-through;
+      color: $secondary-color;
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    .done-text {
+      margin-left: 10px;
+      font-size: 14px;
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  button {
+    background-color: #dc3545;
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+
+  input {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  li {
+    flex-direction: row;
+    font-size: 14px;
+  }
+
+  li span {
+    padding: 10px;
+  }
+
+  button {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+  }
+
+  li button {
+    font-size: 10px;
+    width: 10%;
+  }
+}
